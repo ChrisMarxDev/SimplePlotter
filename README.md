@@ -6,10 +6,12 @@ A hobby flutter package for visualizing data. Right now only contains line and b
 
 Installation:
 At the moment this is package is just available as git repository, so it can be used only with:
-'dependencies:
+```
+dependencies:
    plugin1:
      git:
-       url: git://github.com/ChrisMarxDev/SimplePlotter.git'
+       url: git://github.com/ChrisMarxDev/SimplePlotter.git
+```
 
 
 Just use the use the available widgets 'LineGraph' or 'BarGraph' as children in your widgets.
@@ -17,19 +19,27 @@ May have some problems when the size of the parent widget is not defined.
 
 Examples:
 Simple line graph:
-'new LineGraph(data: listOfData)'
+```dart
+new LineGraph(data: listOfData)```
 
 With custom values:
-'new LineGraph(data: listOfData, backgroundColor: Colors.orange, color: Colors.blue, fitValues: false, strokeWidth: 2.5)'
+```dart
+new LineGraph(data: listOfData, backgroundColor: Colors.orange, color: Colors.blue, fitValues: false, strokeWidth: 2.5)
+```
 
 Simple bar graph:
-'new BarGraph(data: listOfData)'
+```dart
+new BarGraph(data: listOfData)
+```
 
 With custom values:
-'new BarGraph(data: listOfData, backgroundColor: Colors.white, color: Colors.black, barOffset: 10.0)'
+```dart
+new BarGraph(data: listOfData, backgroundColor: Colors.white, color: Colors.black, barOffset: 10.0)
+```
 
 Complete as a widget:
-'class Example extends StatefulWidget {
+```dart
+class Example extends StatefulWidget {
    @override
    _ExampleState createState() => new _ExampleState();
  }
@@ -42,7 +52,8 @@ Complete as a widget:
      color: Colors.deepOrange,
      strokeWidth: 2.0));
    }
- }'
+ }
+ ```
 
 ## Contributors
 At the moment only myself, feel free to do pull request or download and alter this project.
