@@ -18,7 +18,7 @@ Set the right import
 import 'package:simple_plotter/simple_plotter.dart';
 ```
 
-##Usage
+## Usage
 Just use the use the available widgets 'LineGraph' or 'BarGraph' as children in your widgets.
 May have some problems when the size of the parent widget is not defined.
 
