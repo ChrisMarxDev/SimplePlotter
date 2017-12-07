@@ -20,7 +20,8 @@ May have some problems when the size of the parent widget is not defined.
 Examples:
 Simple line graph:
 ```dart
-new LineGraph(data: listOfData)```
+new LineGraph(data: listOfData)
+```
 
 With custom values:
 ```dart
