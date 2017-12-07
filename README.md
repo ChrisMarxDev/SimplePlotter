@@ -8,12 +8,18 @@ Installation:
 At the moment this is package is just available as git repository, so it can be used only with:
 ```
 dependencies:
-   plugin1:
+   simple_plotter:
      git:
        url: git://github.com/ChrisMarxDev/SimplePlotter.git
 ```
 
+Set the right import
+```dart`
+import 'package:simple_plotter/simple_plotter.dart';
 
+``
+
+##Usage
 Just use the use the available widgets 'LineGraph' or 'BarGraph' as children in your widgets.
 May have some problems when the size of the parent widget is not defined.
 

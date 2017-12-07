@@ -115,9 +115,6 @@ class LineGraphCanvas extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    print(size.width);
-    print(size.height);
-
     Paint paint = new Paint()
       ..color = backgroundColor
       ..style = PaintingStyle.fill;
@@ -156,8 +153,6 @@ class LineGraphCanvas extends CustomPainter {
         ? new List<double>.from(data).fold(data[0], (i, j) => i < j ? i : j)
         : 0;
     numberOfValues = data.length;
-    print(maxValue);
-    print(minValue);
   }
 
   void drawLine(double firstPoint, double secondPoint, int index, Size size,
@@ -170,13 +165,8 @@ class LineGraphCanvas extends CustomPainter {
     double y2 = size.height *
         (1 - (secondPoint - minValue) / (maxValue - minValue));
 
-    print("First Point x: " + x1.toString() + "   y: " + y1.toString());
-    print("Second Point x: " + x2.toString() + "   y: " + y2.toString());
-
-
     Offset offsetFirst = new Offset(x1, y1);
     Offset offsetSecond = new Offset(x2, y2);
-
 
     canvas.drawLine(offsetFirst, offsetSecond, paint);
   }
@@ -213,9 +203,6 @@ class BarGraphCanvas extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    print(size.width);
-    print(size.height);
-
     Paint paint = new Paint()
       ..color = backgroundColor
       ..style = PaintingStyle.fill;
@@ -247,8 +234,6 @@ class BarGraphCanvas extends CustomPainter {
     minValue =
         new List<double>.from(data).fold(data[0], (i, j) => i < j ? i : j);
     numberOfValues = data.length;
-    print(maxValue);
-    print(minValue);
   }
 
   void drawLine(double value, int index, Size size,
@@ -261,13 +246,8 @@ class BarGraphCanvas extends CustomPainter {
     double y2 = size.height *
         (1 - (value - minValue) / (maxValue - minValue));
 
-    print("First Point x: " + x1.toString() + "   y: " + y1.toString());
-    print("Second Point x: " + x2.toString() + "   y: " + y2.toString());
-
-
     Offset offsetBottomLeft = new Offset(x1, y1);
     Offset offsetTopRight = new Offset(x2, y2);
-
 
     canvas.drawRect(
         new Rect.fromPoints(offsetBottomLeft, offsetTopRight), paint);
