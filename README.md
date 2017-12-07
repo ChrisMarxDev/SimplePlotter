@@ -14,10 +14,9 @@ dependencies:
 ```
 
 Set the right import
-```dart`
+```dart
 import 'package:simple_plotter/simple_plotter.dart';
-
-``
+```
 
 ##Usage
 Just use the use the available widgets 'LineGraph' or 'BarGraph' as children in your widgets.
