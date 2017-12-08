@@ -30,7 +30,7 @@ new LineGraph(data: listOfData)
 
 With custom values:
 ```dart
-new LineGraph(data: listOfData, backgroundColor: Colors.orange, color: Colors.blue, fitValues: false, strokeWidth: 2.5)
+new LineGraph(data: listOfData, backgroundColor: Colors.orange, color: Colors.blue, strokeWidth: 2.5)
 ```
 
 Simple bar graph:
@@ -60,6 +60,9 @@ class Example extends StatefulWidget {
    }
  }
  ```
+
+![Example picture](https://raw.githubusercontent.com/ChrisDevMarx/SimplePlotter/master/example_screenshot.png)
+
 
 ## Contributors
 At the moment only myself, feel free to do pull request or download and alter this project.

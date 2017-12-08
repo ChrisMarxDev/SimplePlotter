@@ -14,15 +14,12 @@ class LineGraph extends StatefulWidget {
   //The data to be drawn
   final List<double> data;
 
-  final bool fitValues;
-
   final double strokeWidth;
 
   LineGraph({
     this.data,
     this.backgroundColor: Colors.white,
     this.color: Colors.black,
-    this.fitValues: true,
     this.strokeWidth: 1.0
   });
 
@@ -38,7 +35,6 @@ class _LineGraphState extends State<LineGraph> {
             data: widget.data,
             backgroundColor: widget.backgroundColor,
             color: widget.color,
-            fitValues: widget.fitValues,
             strokeWidth: widget.strokeWidth
         ));
   }
@@ -88,7 +84,6 @@ class LineGraphCanvas extends CustomPainter {
     this.data,
     this.backgroundColor: Colors.white,
     this.color: Colors.black,
-    this.fitValues: true,
     this.strokeWidth: 1.0
   });
 
@@ -101,8 +96,6 @@ class LineGraphCanvas extends CustomPainter {
 
   //The data to be drawn
   final List<double> data;
-
-  final bool fitValues;
 
   final double strokeWidth;
 
@@ -149,9 +142,8 @@ class LineGraphCanvas extends CustomPainter {
   computeValues() {
     maxValue =
         new List<double>.from(data).fold(data[0], (i, j) => i > j ? i : j);
-    minValue = fitValues
-        ? new List<double>.from(data).fold(data[0], (i, j) => i < j ? i : j)
-        : 0;
+    minValue =
+        new List<double>.from(data).fold(data[0], (i, j) => i < j ? i : j);
     numberOfValues = data.length;
   }
 
