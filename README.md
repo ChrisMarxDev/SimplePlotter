@@ -61,7 +61,7 @@ class Example extends StatefulWidget {
  }
  ```
 
-![Example picture](https://raw.githubusercontent.com/ChrisDevMarx/SimplePlotter/master/example_screenshot.png)
+![Example picture](https://raw.githubusercontent.com/ChrisMarxDev/SimplePlotter/master/example_screenshot.png)
 
 
 ## Contributors
