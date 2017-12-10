@@ -2,9 +2,7 @@ library simple_plotter;
 
 import 'package:flutter/material.dart';
 
-
 class LineGraph extends StatefulWidget {
-
   /// The color in the background of the circle
   final Color backgroundColor;
 
@@ -16,12 +14,11 @@ class LineGraph extends StatefulWidget {
 
   final double strokeWidth;
 
-  LineGraph({
-    this.data,
-    this.backgroundColor: Colors.white,
-    this.color: Colors.black,
-    this.strokeWidth: 1.0
-  });
+  LineGraph(
+      {this.data,
+      this.backgroundColor: Colors.white,
+      this.color: Colors.black,
+      this.strokeWidth: 1.0});
 
   @override
   _LineGraphState createState() => new _LineGraphState();
@@ -35,20 +32,17 @@ class _LineGraphState extends State<LineGraph> {
             data: widget.data,
             backgroundColor: widget.backgroundColor,
             color: widget.color,
-            strokeWidth: widget.strokeWidth
-        ));
+            strokeWidth: widget.strokeWidth));
   }
 }
 
 class BarGraph extends StatefulWidget {
-
   BarGraph({
     this.data,
     this.barOffset: 2.0,
     this.backgroundColor: Colors.white,
     this.color: Colors.black,
   });
-
 
   /// The color in the background of the circle
   final Color backgroundColor;
@@ -73,20 +67,16 @@ class _BarGraphState extends State<BarGraph> {
             data: widget.data,
             backgroundColor: widget.backgroundColor,
             color: widget.color,
-            barOffset: widget.barOffset
-        ));
+            barOffset: widget.barOffset));
   }
 }
 
-
 class LineGraphCanvas extends CustomPainter {
-  LineGraphCanvas({
-    this.data,
-    this.backgroundColor: Colors.white,
-    this.color: Colors.black,
-    this.strokeWidth: 1.0
-  });
-
+  LineGraphCanvas(
+      {this.data,
+      this.backgroundColor: Colors.white,
+      this.color: Colors.black,
+      this.strokeWidth: 1.0});
 
   /// The color in the background of the circle
   final Color backgroundColor;
@@ -99,12 +89,10 @@ class LineGraphCanvas extends CustomPainter {
 
   final double strokeWidth;
 
-
   double maxValue;
   double minValue;
 
   int numberOfValues;
-
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -114,14 +102,13 @@ class LineGraphCanvas extends CustomPainter {
 
     Rect background = const Offset(0.0, 0.0) & size;
 
-
     canvas.drawRect(background, paint);
-
 
     paint
       ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth;
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.round;
 
     if (data != null && !data.isEmpty) {
       computeValues();
@@ -152,20 +139,17 @@ class LineGraphCanvas extends CustomPainter {
     double x1 = (index - 1) * size.width / (numberOfValues - 1);
     double x2 = (index) * size.width / (numberOfValues - 1);
 
-    double y1 = size.height *
-        (1 - (firstPoint - minValue) / (maxValue - minValue));
-    double y2 = size.height *
-        (1 - (secondPoint - minValue) / (maxValue - minValue));
+    double y1 =
+        size.height * (1 - (firstPoint - minValue) / (maxValue - minValue));
+    double y2 =
+        size.height * (1 - (secondPoint - minValue) / (maxValue - minValue));
 
     Offset offsetFirst = new Offset(x1, y1);
     Offset offsetSecond = new Offset(x2, y2);
 
     canvas.drawLine(offsetFirst, offsetSecond, paint);
   }
-
-
 }
-
 
 class BarGraphCanvas extends CustomPainter {
   BarGraphCanvas({
@@ -174,7 +158,6 @@ class BarGraphCanvas extends CustomPainter {
     this.backgroundColor: Colors.white,
     this.color: Colors.black,
   });
-
 
   /// The color in the background of the circle
   final Color backgroundColor;
@@ -191,7 +174,6 @@ class BarGraphCanvas extends CustomPainter {
   double minValue;
 
   int numberOfValues;
-
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -228,15 +210,14 @@ class BarGraphCanvas extends CustomPainter {
     numberOfValues = data.length;
   }
 
-  void drawLine(double value, int index, Size size,
-      Canvas canvas, Paint paint) {
+  void drawLine(
+      double value, int index, Size size, Canvas canvas, Paint paint) {
     double x1 = (index) * size.width / (numberOfValues) + barOffset;
 
     double x2 = (index + 1) * size.width / (numberOfValues) - barOffset;
 
     double y1 = size.height;
-    double y2 = size.height *
-        (1 - (value - minValue) / (maxValue - minValue));
+    double y2 = size.height * (1 - (value - minValue) / (maxValue - minValue));
 
     Offset offsetBottomLeft = new Offset(x1, y1);
     Offset offsetTopRight = new Offset(x2, y2);
@@ -244,6 +225,4 @@ class BarGraphCanvas extends CustomPainter {
     canvas.drawRect(
         new Rect.fromPoints(offsetBottomLeft, offsetTopRight), paint);
   }
-
-
 }
